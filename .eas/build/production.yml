@@ -1,0 +1,15 @@
+build:
+  name: Production Build
+
+  steps:
+    - eas/checkout
+
+    - run:
+        name: Install dependencies
+        command: pnpm install --frozen-lockfile
+
+    - run:
+        name: Quality Check
+        command: pnpm run quality
+
+    - eas/build
